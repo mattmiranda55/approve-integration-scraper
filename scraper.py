@@ -5,21 +5,22 @@ from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 import re
+import os
 
 class ProductScraper:
     def __init__(self, url):
-        self.url = url
-        self.setup_driver()
-        
-    def setup_driver(self):
-        """Setup Selenium WebDriver with headless Chrome"""
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
         
-        service = Service(ChromeDriverManager().install())
-        self.driver = webdriver.Chrome(service=service, options=chrome_options)
+        # Simple initialization with default settings
+        service = Service()
+        self.driver = webdriver.Chrome(
+            service=service,
+            options=chrome_options
+        )
+        self.url = url
         # Set page load timeout to 30 seconds
         self.driver.set_page_load_timeout(30)
     
