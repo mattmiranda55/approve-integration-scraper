@@ -1,0 +1,17 @@
+# Web scraping essentials
+requests==2.31.0
+beautifulsoup4==4.12.3
+selenium==4.18.1
+webdriver-manager==4.0.1
+lxml==5.1.0
+
+# UI Framework
+streamlit==1.31.1
+
+# Additional utilities
+pandas==2.2.1
+python-dotenv==1.0.1
+validators==0.22.0  # for URL validation
+
+# Optional but recommended for better HTML parsing
+html5lib==1.1 
